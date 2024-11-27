@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 🖼️ Favicon -->
+  <link rel="icon" type="image/x-svg" href="https://munnich.it/assets/Favicon-Website.svg">
+  <!-- 🔤 Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Munnich.it Store</title>
+  <!-- 🎨 Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+
+  <!-- 🏠 HEADER SECTION -->
+  <header class="header" id="up">
+    <!-- 🧭 NAVBAR SECTION -->
+    <nav class="navbar">
+      <!-- 👈 LEFT AREA -->
+      <div class="logo-title">
+        <img src="https://munnich.it/assets/Final-M-Small-B-R.svg" alt="logo" id="logo">
+        <h4>Store</h4>
+      </div>
+
+      <!-- 👉 RIGHT AREA -->
+      <button id="cart-btn" class="cart-btn">
+        <span id="cart-items"></span>
+        <img src="https://cdn-icons-png.flaticon.com/512/4903/4903884.png" alt="Shopping Cart">
+      </button>
+    </nav>
+  </header>
+
+  <!-- 🛒 SIDEBAR SECTION -->
+  <!-- Mask for overlay effect -->
+  <div class="sidebar_mask" id="mask"></div>
+
+  <!-- Sidebar content -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">X</button>
+    <div class="title-desc">
+      <h3>🛒 Ready to checkout?</h3>
+      <p>Review your selected items with ease, and finalize your purchase in just a few clicks.</p>
+    </div>
+
+    <!-- 📦 SELECTED ITEMS AREA -->
+    <h4 id="displayControl">Cart Items</h4>
+
+    <div id="cartEmpty"><h2>Cart is Empty</h2></div>
+
+    <div class="selected_items"></div>
+
+    <!-- 🔘 BUTTONS TO ACTION AREA -->
+    <div class="deleteAll_Checkout_btns">
+      <button id="deleteAll_btn" onclick="handleCleanCart()">Delete All Items</button>
+      <button id="checkout_btn">Checkout Now &RightArrow;</button>
+    </div>
+  </div>
+
+  <!-- 📄 MAIN SECTION -->
+  <main>
+    <!-- 🦸‍♂️ HERO AREA -->
+    <div class="hero">
+      <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/7986188/7986188-hd_1920_1080_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="mask"></div>
+      <div class="title-desc">
+        <h1>Explore the Future, Today.</h1>
+        <p>Discover our top-selling gadgets, innovative devices, and must-have tech essentials, curated to redefine
+          your digital experience.</p>
+      </div>
+    </div>
+
+    <!-- 🔝 TOP-SELLING AREA -->
+    <div class="top_selling">
+      <!-- TITLE & DESC -->
+      <div class="title-desc">
+        <h1>Your Favorites, All in One Place ✨</h1>
+        <p>Shop our customer-approved bestsellers, featuring cutting-edge laptops, powerful smartphones, gaming gear,
+          and essential accessories. These are the products tech enthusiasts can't stop raving about!</p>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="products" id="topSelling"></div>
+    </div>
+
+    <!-- 🚩 BANNER AREA -->
+    <div class="banner">
+      <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/29485423/12691871_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="mask"></div>
+      <div class="title-desc">
+        <h1>Stay Ahead of the Curve</h1>
+        <p>From smart home solutions to the latest laptops and accessories, we've got everything you need.</p>
+      </div>
+    </div>
+
+    <!-- 🛍️ MORE-PRODUCTS AREA -->
+    <div class="more_products">
+      <!-- TITLE & DESC -->
+      <div class="title-desc">
+        <h1>Handpicked for Performance ⚡</h1>
+        <p>Experience innovation and quality in every item 🛠️, ensuring you get the best value 💰 and the latest
+          technology 🔥</p>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="products" id="moreProducts"></div>
+    </div>
+
+    <!-- 🏢 BRANDS AREA -->
+    <div class="brands">
+      <div class="title-desc">
+        <h1>Trusted Brands, Unmatched Quality 🤝</h1>
+        <p>Explore products from the world's leading tech innovators we proudly collaborate with!</p>
+      </div>
+
+      <!-- BRANDS LOGOS -->
+      <div class="brands_logos">
+        <span>
+          <img src="https://logodownload.org/wp-content/uploads/2013/12/apple-logo-2-1.png" alt="Apple Logo">
+        </span>
+        <span>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="Samsung Logo">
+        </span>
+        <span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/2048px-Dell_Logo.svg.png" alt="Dell Logo">
+        </span>
+        <span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony Logo">
+        </span>
+        <span>
+          <img src="https://cdn.pixabay.com/photo/2021/08/10/15/36/microsoft-6536268_1280.png" alt="Microsoft Logo">
+        </span>
+      </div>
+    </div>
+  </main>
+
+  <!-- 👣 FOOTER SECTION -->
+  <footer class="footer">
+
+    <!-- ⬆️ SCROLL-UP BTN AREA -->
+    <a href="#up">
+      <button class="scroll">
+        Scroll up
+      </button>
+    </a>
+
+    <!-- 📧 CTA AREA -->
+    <div class="cta">
+      <div class="email_form">
+        <div class="title-desc">
+          <h1>Unlock Exclusive Tech Updates</h1>
+          <p>Join Munnich.it Store email list for VIP access to product launches, and the latest tech trends delivered
+            straight to your inbox! 📩</p>
+        </div>
+        <form>
+          <input type="email" name="email" placeholder="Add your email now...">
+          <button type="button">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 🗺️ SITEMAP LINKS AREA -->
+    <div class="sitemap">
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Get to know us</h4>
+            <li>
+              <a href="https://munnich.it/" target="_blank">About MUNNICH.IT Store</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li><a href="https://munnich.it/" target="_blank" id="footer_brand">
+                <img src="https://munnich.it/assets/Final-M-Small-B-R.svg" alt="logo" id="logo">
+              </a></li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Shop with us</h4>
+            <li>
+              <a href="#">Your account</a>
+            </li>
+            <li>
+              <a href="#">Your orders</a>
+            </li>
+            <li>
+              <a href="#">Your addresses</a>
+            </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Help center</h4>
+          <li>
+            <a href="#">How to order</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+          <li>
+            <a href="#">Shipping & delivery</a>
+          </li>
+          <li>
+            <a href="#">Returns & Replacements</a>
+          </li>
+          <li>
+            <a href="#">About payment</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Make money</h4>
+          <li>
+            <a href="#">Sell on Cristalmark</a>
+          </li>
+          <li>
+            <a href="#">Become an affiliate</a>
+          </li>
+          <li>
+            <a href="#">Advertise your products</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Policy</h4>
+          <li>
+            <a href="#">Maintenance policy</a>
+          </li>
+          <li>
+            <a href="#">Return policy</a>
+          </li>
+          <li>
+            <a href="#">Terms and conditions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="hyperlinks">
+          <h4>Follow us</h4>
+          <li>
+            <img class="hyperlinks_icons" src="https://fifolio.netlify.app/projects/3/css/svgs/fb.svg" alt="Facebook icon">
+            <a href="#">Facebook</a>
+          </li>
+          <li>
+            <img class="hyperlinks_icons" src="https://fifolio.netlify.app/projects/3/css/svgs/in.svg" alt="Instagram icon">
+            <a href="#">Instagram</a>
+          </li>
+          <li>
+            <img class="hyperlinks_icons" src="https://fifolio.netlify.app/projects/3/css/svgs/yb.svg" alt="YouTube icon">
+            <a href="#">Youtube</a>
+          </li>
+          <li>
+            <img class="hyperlinks_icons" src="https://fifolio.netlify.app/projects/3/css/svgs/app.svg" alt="App icon">
+            <a href="#"> Our App</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- ©️ COPYRIGHT SECTION -->
+  <div class="copyright">
+    <span>© 2024 MUNNICH.IT Store Service CO. LLC. All rights reserved.</span>
+  </div>
+
+  <!-- 📜 Main JavaScript file -->
+  <script src="app.js"></script>
+</body>
+
+</html>

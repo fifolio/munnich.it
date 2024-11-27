@@ -1,0 +1,814 @@
+/* 🎨 Color Palette and Global Variables
+   ========================================================================== */
+/* Define global CSS variables for consistent theming across the site.
+   This includes colors, fonts, sizes, shadows, and layout values. */
+   :root {
+    /* Colors */
+    --color-primary: #ff5252;
+    --color-primary-dark: #f83030;
+    --color-secondary: #2e86de;
+    --color-text-dark: #353535;
+    --color-text-light: #999;
+    --color-background: ghostwhite;
+    --color-white: white;
+    --color-gray-light: #f0f0f0;
+    --color-gray: #dfdfdf;
+    --color-footer-bg: #2f3542;
+    --color-footer-cta: #57606f;
+    --color-copyright: #161a24;
+  
+    /* Fonts */
+    --font-family: "Poppins", sans-serif;
+  
+    /* Sizes */
+    --navbar-height: 50px;
+    --border-radius: 10px;
+    --border-radius-small: 5px;
+  
+    /* Shadows */
+    --shadow-light: 0 1px 8px -5px gray;
+    --shadow-medium: 0 2px 7px #dfdfdf;
+  
+    /* Transitions */
+    --transition-speed: 0.3s;
+  
+    /* Layouts */
+    --container-padding: 2%;
+  }
+  
+  /* 🏗 Base Styles
+     ========================================================================== */
+  /* Set up the basic styles for the body and global elements. */
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+    font-family: var(--font-family);
+  }
+  
+  /* 📱 Container and Navbar
+     ========================================================================== */
+  /* Styles for the main container and the fixed navigation bar at the top of the page. */
+  .container {
+    width: 100%;
+  }
+  
+  .navbar {
+    position: fixed;
+    display: flex;
+    z-index: 99;
+    margin: 0;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    height: var(--navbar-height);
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-light);
+  }
+  
+  #logo {
+    margin: 0;
+    padding: 0;
+    width: 155px;
+  }
+  
+  .logo-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-title h4 {
+    margin: 3px 0 0 5px;
+    color: var(--color-text-dark);
+  }
+  
+  #cart-btn {
+    border: none;
+    border-radius: var(--border-radius-small);
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 4%;
+  }
+  
+  #cart-btn img {
+    height: 35px;
+    margin: 0;
+  }
+  
+  #cart-items {
+    display: none;
+  }
+  
+  #cart-btn span {
+    color: var(--color-white);
+    border-radius: 100%;
+    padding: 7px;
+    font-weight: bold;
+    position: absolute;
+    background-color: var(--color-primary);
+  }
+  
+  /* --- Main Section --- */
+  main {
+    padding: 70px 0;
+  }
+  
+  /* 🦸‍♂️ Hero Section
+     ========================================================================== */
+  /* Styles for the main hero section, including video background and overlay text. */
+  .hero {
+    position: relative;
+    height: 80vh;
+    margin: 0 var(--container-padding);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    box-shadow: var(--shadow-light);
+  }
+  
+  .hero .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  
+  .hero .title-desc {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--color-white);
+    max-width: 900px;
+    padding: 20px;
+  }
+  
+  .hero .title-desc h1 {
+    font-weight: bolder;
+    margin: 20px 0;
+    font-size: 30px;
+  }
+  
+  .hero .title-desc p {
+    font-size: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .hero .title-desc h1 {
+      font-size: 55px;
+    }
+  
+    .hero .title-desc p {
+      font-size: 25px;
+    }
+  }
+  
+  /* 🛍 Product Listings
+     ========================================================================== */
+  /* Styles for the product listing sections, including top-selling and more products areas. */
+  .top_selling {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    margin: 20px var(--container-padding);
+    padding: 1% 3%;
+  }
+  
+  .top_selling .title-desc {
+    max-width: 600px;
+  }
+  
+  .products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  /* 🏷 Product Card
+     ========================================================================== */
+  /* Detailed styles for individual product cards, including hover effects and price display. */
+  .product-card {
+    width: 390px;
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    margin: 10px auto;
+    background: #fafafa;
+  }
+  
+  .badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 3px 10px;
+  }
+  
+  .product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gray-light);
+    cursor: pointer;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .product-tumb img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-details {
+    padding: 15px;
+  }
+  
+  .product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: -10px;
+  }
+  
+  .product-details h4 a {
+    font-weight: bold;
+    display: block;
+    width: fit-content;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: var(--transition-speed);
+  }
+  
+  .product-details h4 a:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  .product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: var(--color-text-light);
+  }
+  
+  .product-bottom-details {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .product-bottom-details div {
+    float: left;
+    width: 50%;
+  }
+  
+  .product-price {
+    font-size: 18px;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+  
+  .product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .product-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .product-links button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--color-background);
+    font-weight: bold;
+    border: 0;
+    border-radius: 50px;
+    background-color: var(--color-primary);
+    font-size: 15px;
+    padding: 10px 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .product-links button:hover {
+    color: var(--color-white);
+    background-color: var(--color-primary-dark);
+    transition: var(--transition-speed);
+  }
+  
+  /* --- MORE PRODUCTS AREA --- */
+  .more_products {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    margin: 20px var(--container-padding);
+    padding: 1% 3%;
+  }
+  
+  .more_products .title-desc {
+    max-width: 600px;
+  }
+  
+  /* 🚩 Banner Section
+     ========================================================================== */
+  /* Styles for the promotional banner section with video background. */
+  .banner {
+    position: relative;
+    height: 50vh;
+    margin: 0 var(--container-padding);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    box-shadow: var(--shadow-light);
+  }
+  
+  .banner .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  
+  .banner .title-desc {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--color-white);
+    max-width: 900px;
+    padding: 20px;
+  }
+  
+  .banner .title-desc h1 {
+    font-weight: bolder;
+    margin: 20px 0;
+    font-size: 30px;
+  }
+  
+  .banner .title-desc p {
+    font-size: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .banner .title-desc h1 {
+      font-size: 55px;
+    }
+  
+    .banner .title-desc p {
+      font-size: 25px;
+    }
+  }
+  
+  /* 🏢 Brands Section
+     ========================================================================== */
+  /* Layout and styling for the brands showcase section. */
+  .brands {
+    background-color: var(--color-white);
+    position: relative;
+    min-height: 55vh;
+    margin: 0 var(--container-padding);
+    padding: 0 0 auto 0;
+    border-radius: var(--border-radius);
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .brands .title-desc {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--color-text-dark);
+    padding: 20px;
+  }
+  
+  .brands .title-desc h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 10px;
+  }
+  
+  .brands .title-desc p {
+    font-size: 16px;
+  }
+  
+  .brands .brands_logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .brands .brands_logos img {
+    width: 100px;
+    padding: 10px;
+  }
+  
+  /* 👣 Footer
+     ========================================================================== */
+  /* Styles for the main footer section, including background and general layout. */
+  footer {
+    background-color: var(--color-footer-bg);
+    min-height: 130vh;
+    border: 0;
+  }
+  
+  footer .scroll {
+    width: 100%;
+    background-color: #747d8c;
+  }
+  
+  footer button {
+    border: 0;
+    padding: 15px 0;
+    cursor: pointer;
+    color: #e4e4e4;
+    font-size: medium;
+    font-weight: bolder;
+  }
+  
+  footer button:hover {
+    color: var(--color-white);
+  }
+  
+  /* 📧 Email Subscription
+     ========================================================================== */
+  /* Styles for the email subscription form within the footer. */
+  footer .cta {
+    padding: var(--container-padding);
+    padding-bottom: 5%;
+    flex-wrap: wrap;
+    background-color: var(--color-footer-cta);
+    color: var(--color-white);
+  }
+  
+  footer .email_form {
+    margin: auto auto;
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  footer .cta .title-desc {
+    max-width: 600px;
+  }
+  
+  footer .cta input {
+    max-width: 70%;
+    padding: 10px 10px;
+    border-radius: 50px;
+    border: 2px solid var(--color-white);
+  }
+  
+  @media (min-width: 768px) {
+    footer .cta input {
+      width: 70%;
+    }
+  }
+  
+  footer .cta input:focus {
+    border: 2px solid salmon;
+    outline: 0;
+  }
+  
+  footer .cta button {
+    color: var(--color-background);
+    font-weight: bold;
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    background-color: var(--color-primary);
+    font-size: 15px;
+    padding: 10px 10px;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    footer .cta button {
+      width: 20%;
+    }
+  }
+  
+  footer .cta button:hover {
+    color: var(--color-white);
+    border: 2px solid var(--color-primary-dark);
+    background-color: var(--color-primary-dark);
+    transition: var(--transition-speed);
+  }
+  
+  /* 🗺 Sitemap
+     ========================================================================== */
+  /* Styles for the sitemap section in the footer. */
+  footer .sitemap {
+    padding: auto var(--container-padding);
+    margin-top: 50px;
+    color: var(--color-background);
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  
+  @media (min-width: 768px) {
+    footer .sitemap {
+      justify-content: space-evenly;
+    }
+  }
+  
+  footer .sitemap h4 {
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  footer .sitemap .hyperlinks li {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  footer .sitemap .hyperlinks li a {
+    color: gainsboro;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  
+  footer .sitemap .hyperlinks li a:hover {
+    color: var(--color-white);
+  }
+  
+  footer .sitemap .hyperlinks li #footer_brand img {
+    background-color: var(--color-white);
+    padding: 8px;
+    border-radius: var(--border-radius-small);
+  }
+  
+  footer .sitemap .hyperlinks .hyperlinks_icons{
+    width: 20px;
+    margin-right: 5px;
+  }
+  
+  /* ©️ Copyright Section
+     ========================================================================== */
+  /* Styles for the copyright notice at the very bottom of the page. */
+  .copyright {
+    background-color: var(--color-copyright);
+    bottom: 0;
+    color: var(--color-white);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    font-size: small;
+    padding: var(--container-padding);
+  }
+  
+  /* 🛒 Sidebar (Cart)
+     ========================================================================== */
+  /* Styles for the sliding cart sidebar, including overlay and item display. */
+  .sidebar_mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 280px;
+    height: 100%;
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    padding: 20px;
+    transition: right 0.6s ease;
+    z-index: 1001;
+  }
+  
+  .sidebar .title-desc h3{
+    margin-top: 35px;
+  }
+  
+  .sidebar .title-desc p{
+    font-size: small;  
+    color: #444444;
+  }
+  
+  .sidebar.open {
+    right: 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: var(--border-radius-small);
+    font-weight: bolder;
+  }
+  
+  /* 📦 Selected Items in Cart
+     ========================================================================== */
+  /* Styles for displaying the selected items within the cart sidebar. */
+  .selected_items {
+    height: 38vh;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  
+  @media (min-height: 600px){
+    .selected_items{
+      height: 48vh;
+    }
+  }
+  
+  .selected_items .item {
+    display: flex;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .selected_items .item .img img {
+    border-radius: var(--border-radius-small);
+    margin: 0 10px 0 0;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+  
+  .selected_items .item .details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  
+  .selected_items .item .details .titleAndRemoveBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+  
+  .selected_items .item .details h5 {
+    color: var(--color-text-dark);
+    margin: 0;
+    padding: 0;
+    font-size: small;
+  }
+  
+  .selected_items .item .details .titleAndRemoveBtn button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .selected_items .item .details .addAndTotal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+  
+  .selected_items .item .details .titleAndRemoveBtn #deleteItem {
+    background: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+    width: 16px;
+  }
+  
+  .selected_items .item .details .addAndTotal .total {
+    color: var(--color-text-dark);
+  }
+  
+  .selected_items .item .details #pre_price {
+    color: #333333;
+    font-weight: 500;
+  }
+  
+  .selected_items .item .details .addAndTotal {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .selected_items .item .details .addAndTotal .actions #subt,
+  .selected_items .item .details .addAndTotal .actions #add {
+    padding: 0 8px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--color-gray);
+    cursor: pointer;
+    font-size: large;
+  }
+  
+  .selected_items .item .details .addAndTotal .actions #coun {
+    padding: 0 8px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-small);
+    border: 0;
+    font-size: normal;
+  }
+  
+  /* 🛍️ Cart Actions
+     ========================================================================== */
+  /* Styles for the "Delete All" and "Checkout" buttons in the cart sidebar. */
+  .deleteAll_Checkout_btns button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--color-background);
+    font-weight: bold;
+    border: 0;
+    margin: 10px 0;
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 10px 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .deleteAll_Checkout_btns #deleteAll_btn {
+    background-color: var(--color-primary);
+  }
+  
+  .deleteAll_Checkout_btns #deleteAll_btn:hover {
+    background-color: var(--color-primary-dark);
+  }
+  
+  .deleteAll_Checkout_btns #checkout_btn {
+    background-color: var(--color-secondary);
+  }
+  
+  .deleteAll_Checkout_btns #checkout_btn:hover {
+    background-color: var(--color-secondary);
+  }
+  
+  /* 🛒 Empty Cart State
+     ========================================================================== */
+  /* Styles for the message displayed when the cart is empty. */
+  #cartEmpty {
+    margin-top: 50%;
+    text-align: center;
+    color: var(--color-text-light);
+  }
+  
+  
