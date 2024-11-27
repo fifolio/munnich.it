@@ -77,7 +77,7 @@ The goal of this project is to create an interactive single-page store applicati
     
     `cd munnich.it` 
     
-3.  **Open the `main.html` file** in your browser to view the application.
+3.  **Open the `index.html` file** in your browser to view the application.
     
 
 ## Features Breakdown
